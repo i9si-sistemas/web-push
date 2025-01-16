@@ -1,4 +1,4 @@
-# Web Push Notification Library Documentation
+# Web Push Notification Library 
 
 This library provides a simple and efficient way to implement web push notifications in Go applications. It handles VAPID (Voluntary Application Server Identification) authentication and supports various notification urgency levels.
 
