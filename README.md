@@ -48,9 +48,10 @@ type SubscriptionMessage struct {
 	Body     string `json:"body"`
 }
 
+
 func main() {
-    ctx := context.Background()
-    webpushClient := webpush.New(nine.New(ctx))
+	ctx := context.Background()
+	webpushClient := webpush.New(nine.New(ctx))
 	server := nine.NewServer(5502)
 
 	db := database.New()
@@ -58,7 +59,7 @@ func main() {
 	server.ServeFiles("/", "./static")
 
 	server.Get("/public_key", func(req *nine.Request, res *nine.Response) error {
-		privateKey, publicKey, _ := webpush.GenerateVAPIDKeys()
+		privateKey, publicKey, _ := webpushClient.GenerateVAPIDKeys()
 		vapidPrivateKey = privateKey
 		vapidPublicKey = publicKey
 		return res.JSON(nine.JSON{
@@ -139,7 +140,6 @@ func main() {
 
 	server.Listen()
 }
-
 
 ```
 
