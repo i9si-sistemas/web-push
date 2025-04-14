@@ -18,6 +18,7 @@ import (
 	"time"
 
 	"github.com/i9si-sistemas/nine"
+	i9 "github.com/i9si-sistemas/nine/pkg/client"
 	"golang.org/x/crypto/hkdf"
 )
 
@@ -186,7 +187,7 @@ func (cl *Client) SendNotificationWithContext(
 	if httpClient == nil {
 		httpClient = nine.New(ctx)
 	}
-	return httpClient.Post(s.Endpoint, &nine.Options{
+	return httpClient.Post(s.Endpoint, &i9.Options{
 		Body:    recordBuf,
 		Headers: headers,
 	})
@@ -255,12 +256,12 @@ func notificationHeaders(
 	endpoint string,
 	recordBuf *bytes.Buffer,
 	options *Options,
-) ([]nine.Header, error) {
-	headers := []nine.Header{
-		{Data: nine.Data{Key: "Content-Encoding", Value: "aes128gcm"}},
-		{Data: nine.Data{Key: "Content-Length", Value: strconv.Itoa(recordBuf.Len())}},
-		{Data: nine.Data{Key: "Content-Type", Value: "application/octet-stream"}},
-		{Data: nine.Data{Key: "TTL", Value: strconv.Itoa(options.TTL)}},
+) ([]i9.Header, error) {
+	headers := []i9.Header{
+		{Data: i9.Data{Key: "Content-Encoding", Value: "aes128gcm"}},
+		{Data: i9.Data{Key: "Content-Length", Value: strconv.Itoa(recordBuf.Len())}},
+		{Data: i9.Data{Key: "Content-Type", Value: "application/octet-stream"}},
+		{Data: i9.Data{Key: "TTL", Value: strconv.Itoa(options.TTL)}},
 	}
 	expiration := options.VapidExpiration
 	if expiration.IsZero() {
@@ -290,8 +291,8 @@ func notificationHeaders(
 	return headers, nil
 }
 
-func addHeader(headers []nine.Header, key string, value any) []nine.Header {
-	return append(headers, nine.Header{
-		Data: nine.Data{Key: key, Value: value},
+func addHeader(headers []i9.Header, key string, value any) []i9.Header {
+	return append(headers, i9.Header{
+		Data: i9.Data{Key: key, Value: value},
 	})
 }

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/i9si-sistemas/assert"
-	"github.com/i9si-sistemas/nine"
+	nine "github.com/i9si-sistemas/nine/pkg/client"
 )
 
 var (

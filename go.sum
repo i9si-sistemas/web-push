@@ -4,5 +4,7 @@ github.com/i9si-sistemas/assert v0.0.0-20241226143514-2239efdffece h1:dXX3IVWmQl
 github.com/i9si-sistemas/assert v0.0.0-20241226143514-2239efdffece/go.mod h1:xRwY4u6NZZjNLlgdBSaNESQEUSJ4CxuT4lWQAbvwfBQ=
 github.com/i9si-sistemas/nine v0.0.0-20241220125744-827b6052c663 h1:XZsDnvSL5EdPvFlaNLQCQ4yZ3d68pefpQGHJIfbCT9U=
 github.com/i9si-sistemas/nine v0.0.0-20241220125744-827b6052c663/go.mod h1:3u4KYrD4JDoSJtbY+bIsuhu2FX3eOclN8t1cUEqfIh4=
+github.com/i9si-sistemas/nine v0.0.0-20250414173502-4ba0669f2e16 h1:uD7rPEJpRGmHz1wnYqg26qpOyGO2bWCmDOhl4ivFnz8=
+github.com/i9si-sistemas/nine v0.0.0-20250414173502-4ba0669f2e16/go.mod h1:IRW/TkC7ZqmltMkamaGreVlRCadPYHgcluQEJgcaAHs=
 golang.org/x/crypto v0.32.0 h1:euUpcYgM8WcP71gNpTqQCn6rC2t6ULUPiOzfWaXVVfc=
 golang.org/x/crypto v0.32.0/go.mod h1:ZnnJkOaASj8g0AjIduWNlq2NRxL0PlBrbKVyZ6V/Ugc=

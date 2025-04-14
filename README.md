@@ -16,14 +16,16 @@ go get github.com/i9si-sistemas/web-push
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"io"
 	"log"
 	"net/http"
 
-	webpush "github.com/i9si-sistemas/webpush"
-	"github.com/username/repository/database"
 	"github.com/i9si-sistemas/nine"
+	i9 "github.com/i9si-sistemas/nine/pkg/server"
+	webpush "github.com/i9si-sistemas/web-push"
+	"github.com/username/repository/database"
 )
 
 type ApiNotification struct {
@@ -48,7 +50,6 @@ type SubscriptionMessage struct {
 	Body     string `json:"body"`
 }
 
-
 func main() {
 	ctx := context.Background()
 	webpushClient := webpush.New(nine.New(ctx))
@@ -58,7 +59,7 @@ func main() {
 
 	server.ServeFiles("/", "./static")
 
-	server.Get("/public_key", func(req *nine.Request, res *nine.Response) error {
+	server.Get("/public_key", func(req *i9.Request, res *i9.Response) error {
 		privateKey, publicKey, _ := webpushClient.GenerateVAPIDKeys()
 		vapidPrivateKey = privateKey
 		vapidPublicKey = publicKey
@@ -67,9 +68,9 @@ func main() {
 		})
 	})
 
-	server.Post("/subscribe", func(req *nine.Request, res *nine.Response) error {
+	server.Post("/subscribe", func(req *i9.Request, res *i9.Response) error {
 		var subscription ApiNotification
-		if err := nine.Body(req, &subscription); err != nil {
+		if err := i9.Body(req, &subscription); err != nil {
 			return res.Status(http.StatusBadRequest).JSON(nine.JSON{
 				"status":  "error",
 				"message": err.Error(),
@@ -90,11 +91,11 @@ func main() {
 		})
 	})
 
-	server.Post("/send/message", func(req *nine.Request, res *nine.Response) error {
+	server.Post("/send/message", func(req *i9.Request, res *i9.Response) error {
 		var body struct {
 			SenderId string `json:"senderId"`
 		}
-		if err := nine.Body(req, &body); err != nil {
+		if err := i9.Body(req, &body); err != nil {
 			return res.Status(http.StatusBadRequest).JSON(nine.JSON{
 				"status":  "error",
 				"message": err.Error(),
@@ -140,7 +141,6 @@ func main() {
 
 	server.Listen()
 }
-
 ```
 
 
