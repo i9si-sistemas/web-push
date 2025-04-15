@@ -6,5 +6,7 @@ github.com/i9si-sistemas/nine v0.0.0-20241220125744-827b6052c663 h1:XZsDnvSL5EdP
 github.com/i9si-sistemas/nine v0.0.0-20241220125744-827b6052c663/go.mod h1:3u4KYrD4JDoSJtbY+bIsuhu2FX3eOclN8t1cUEqfIh4=
 github.com/i9si-sistemas/nine v0.0.0-20250414173502-4ba0669f2e16 h1:uD7rPEJpRGmHz1wnYqg26qpOyGO2bWCmDOhl4ivFnz8=
 github.com/i9si-sistemas/nine v0.0.0-20250414173502-4ba0669f2e16/go.mod h1:IRW/TkC7ZqmltMkamaGreVlRCadPYHgcluQEJgcaAHs=
+github.com/i9si-sistemas/nine v0.0.0-20250415192043-cf34f8690755 h1:wiTzRjiMIE2Y5mIzWDfS9xXPUy86YNsIQaRo0ajqP9U=
+github.com/i9si-sistemas/nine v0.0.0-20250415192043-cf34f8690755/go.mod h1:IRW/TkC7ZqmltMkamaGreVlRCadPYHgcluQEJgcaAHs=
 golang.org/x/crypto v0.32.0 h1:euUpcYgM8WcP71gNpTqQCn6rC2t6ULUPiOzfWaXVVfc=
 golang.org/x/crypto v0.32.0/go.mod h1:ZnnJkOaASj8g0AjIduWNlq2NRxL0PlBrbKVyZ6V/Ugc=
